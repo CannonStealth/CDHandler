@@ -1,4 +1,4 @@
-import { join } from "path";
+import { join } from 'path';
 import { readdirSync, lstatSync, existsSync, mkdirSync } from "fs";
 import colour from 'cdcolours';
 import { Client } from "discord.js";
@@ -19,17 +19,21 @@ const load = async (client: Client, dir: any) => {
         else {
 
             if (file.endsWith(".ts") && !file.endsWith(".d.ts")) {
-                (await import(join(process.cwd(), dir, file))).default(client);
 
+                const event = (await import(join(process.cwd(), dir, file))).default
                 const name = file.split(".")[0];
-                console.log(colour("[CDHandler]", { textColour: "magenta" }) + ` Loading feature ${name}`);
+                client.on(name, event.bind(null, client));
 
-            } else if (file.endsWith(".js") && !file.endsWith(".d.ts")) {
+                console.log(colour("[CDHandler]", { textColour: "green" }) + ` Loading event ${name}`);
 
-                require(join(process.cwd(), dir, file))(client);
+                
+            } else if (file.endsWith(".coffee") || file.endsWith(".js") && !file.endsWith(".d.ts")) {
 
+                const even = require(join(process.cwd(), dir, file))
                 const nam = file.split(".")[0];
-                console.log(colour("[CDHandler]", { textColour: "magenta" }) + ` Loading feature ${nam}`);
+                client.on(nam, even.bind(null, client));
+
+                console.log(colour("[CDHandler]", { textColour: "green" }) + ` Loading event ${nam}`);
 
             } else continue;
 

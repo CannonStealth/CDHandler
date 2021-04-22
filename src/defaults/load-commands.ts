@@ -11,7 +11,7 @@ const loadDefaultCommands = async (Fcommands: Collection<string, Record<string, 
     for (const file of files) {
     if (!file) return;
 
-            if ((file.endsWith(".js") || file.endsWith(".ts")) && !file.endsWith(".d.ts")) {
+            if ((file.endsWith(".coffee") || file.endsWith(".js") || file.endsWith(".ts")) && !file.endsWith(".d.ts")) {
 
                 const cmd = (await import(`./commands/${file}`)).default
 
@@ -32,7 +32,7 @@ const loadDefaultCommands = async (Fcommands: Collection<string, Record<string, 
                         Faliases.set(command.toLowerCase(), cmd.name) 
                       }
                     }
-                        let category = cmd.category || Fcategory || "Misc"
+                        let category = cmd.category || Fcategory
                  
                         let categoryGetter = Fcategories.get(category.toLowerCase())
                         if(!categoryGetter) categoryGetter = [category]

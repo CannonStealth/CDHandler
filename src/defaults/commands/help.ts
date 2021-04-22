@@ -21,7 +21,7 @@ export default {
 
     const allEmbed: MessageEmbed = new MessageEmbed()
     .setColor('GREEN')
-    .setAuthor(`${message.guild!.name} Avaible Commands List`, message.guild!.iconURL()!)
+    .setAuthor(`${message.guild!.name} Available Commands List`, message.guild!.iconURL()!)
 
 
     if(args[0]) getInfo(args[0].toLowerCase())
@@ -82,7 +82,7 @@ handler.categories.forEach((category: string[]) => {
 
 allEmbed
 .setDescription(
-  `${client.user!.username} total avaible commands: **${total}**
+  `${client.user!.username} total available commands: **${total}**
   [Invite Me](${invite.replace('${INVITE}', client.user!.id)})
   `)
 .setThumbnail(client.user!.displayAvatarURL())
@@ -125,7 +125,7 @@ function category() {
   categoryEmbed
   .setDescription(desc)
 
-  .setAuthor(`${message.guild!.name} ${caps(category[0])} Avaible Commands (${total})`, message.guild!.iconURL()!)
+  .setAuthor(`${message.guild!.name} ${caps(category[0])} Available Commands (${total})`, message.guild!.iconURL()!)
 
   
   return message.channel.send(categoryEmbed)

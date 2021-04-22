@@ -1,0 +1,1 @@
+{"version":3,"file":"load-commands.d.ts","sourceRoot":"","sources":["../../src/defaults/load-commands.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,UAAU,EAAU,MAAM,YAAY,CAAC;AAEhD,QAAA,MAAM,mBAAmB,cAAqB,WAAW,MAAM,EAAE,OAAO,MAAM,EAAE,GAAG,CAAC,CAAC,YAAY,WAAW,MAAM,EAAE,EAAE,OAAO,MAAM,EAAE,GAAG,CAAC,CAAC,eAAe,GAAG,aAAa,MAAM,kBA0C9K,CAAA;AAED,eAAe,mBAAmB,CAAC"}
